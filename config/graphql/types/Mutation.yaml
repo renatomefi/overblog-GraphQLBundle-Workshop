@@ -13,7 +13,7 @@ Mutation:
                 type: "Workshop"
                 args:
                     workshop: "WorkshopInput!"
-                resolve: '@=mutation("App\\Infrastructure\\GraphQL\\Workshop\\Resolver", [args["workshop"]])'
+                resolve: '@=mutation("App\\Infrastructure\\GraphQL\\Workshop\\Mutation\\Create", [args["workshop"]])'
 
 Workshop:
     type: object

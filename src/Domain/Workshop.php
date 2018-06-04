@@ -14,18 +14,10 @@ final class Workshop
      */
     private $name;
 
-    private function __construct(string $name, string $conference)
+    public function __construct(string $name, string $conference)
     {
         $this->name = $name;
         $this->conference = $conference;
-    }
-
-    public static function fromArray(array $arguments): self
-    {
-        return new self(
-            $arguments['name'],
-            $arguments['conference']
-        );
     }
 
     public function getConference(): string
