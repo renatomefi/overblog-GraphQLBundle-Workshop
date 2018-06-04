@@ -1,0 +1,14 @@
+Query:
+    type: object
+    config:
+        description: "Main Queries"
+        fields:
+            hello:
+                type: "String"
+                resolve: "World"
+            helloFromInput:
+                type: "String"
+                args:
+                    name:
+                        type: "String!"
+                resolve: "@=args['name'] ?: 'Guest'"

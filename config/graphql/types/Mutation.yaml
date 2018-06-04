@@ -1,0 +1,34 @@
+Mutation:
+    type: object
+    config:
+        description: "Main Mutations"
+        fields:
+            sayHello:
+                type: "String"
+                args:
+                    hello:
+                        type: "String!"
+                resolve: "@='your input is: ' ~ args['hello']"
+            createWorkshop:
+                type: "Workshop"
+                args:
+                    workshop: "WorkshopInput!"
+                resolve: '@=mutation("App\\Infrastructure\\GraphQL\\Workshop\\Resolver", [args["workshop"]])'
+
+Workshop:
+    type: object
+    config:
+        fields:
+            conference:
+                type: "String!"
+            name:
+                type: "String!"
+
+WorkshopInput:
+    type: input-object
+    config:
+        fields:
+            conference:
+                type: "String!"
+            name:
+                type: "String!"
