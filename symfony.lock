@@ -20,6 +20,9 @@
     "overblog/graphql-php-generator": {
         "version": "v0.7.3"
     },
+    "paragonie/random_compat": {
+        "version": "v2.0.12"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -31,6 +34,9 @@
     },
     "psr/simple-cache": {
         "version": "1.0.1"
+    },
+    "ramsey/uuid": {
+        "version": "3.7.3"
     },
     "symfony/cache": {
         "version": "v4.1.0"
