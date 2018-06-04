@@ -14,21 +14,3 @@ Mutation:
                 args:
                     workshop: "WorkshopInput!"
                 resolve: '@=mutation("App\\Infrastructure\\GraphQL\\Workshop\\Mutation\\Create", [args["workshop"]])'
-
-Workshop:
-    type: object
-    config:
-        fields:
-            conference:
-                type: "String!"
-            name:
-                type: "String!"
-
-WorkshopInput:
-    type: input-object
-    config:
-        fields:
-            conference:
-                type: "String!"
-            name:
-                type: "String!"

@@ -1,0 +1,16 @@
+WorkshopPrototype:
+    decorator: true
+    config:
+        fields:
+            conference:
+                type: "String!"
+            name:
+                type: "String!"
+
+Workshop:
+    type: object
+    inherits: [WorkshopPrototype]
+
+WorkshopInput:
+    type: input-object
+    inherits: [WorkshopPrototype]
