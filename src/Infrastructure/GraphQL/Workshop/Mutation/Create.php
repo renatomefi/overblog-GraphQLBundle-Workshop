@@ -3,8 +3,9 @@
 namespace App\Infrastructure\GraphQL\Workshop\Mutation;
 
 use App\Domain\Workshop;
+use Overblog\GraphQLBundle\Definition\Resolver\MutationInterface;
 
-final class Create
+final class Create implements MutationInterface
 {
     public function __invoke(array $arguments): Workshop
     {
