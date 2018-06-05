@@ -21,11 +21,11 @@ final class Workshop
      */
     private $name;
 
-    public function __construct(string $name, string $conference)
+    public function __construct(string $name, string $conference, ?string $id = null)
     {
         $this->name = $name;
         $this->conference = $conference;
-        $this->id = Uuid::uuid4();
+        $this->id = Uuid::isValid($id) ? $id : Uuid::uuid4();
     }
 
     public function getConference(): string

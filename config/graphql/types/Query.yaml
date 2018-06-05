@@ -3,12 +3,21 @@ Query:
     config:
         description: "Main Queries"
         fields:
-            hello:
+            Hello:
                 type: "String"
                 resolve: "World"
-            helloFromInput:
+            HelloFromInput:
                 type: "String"
                 args:
                     name:
                         type: "String!"
                 resolve: "@=args['name'] ?: 'Guest'"
+            Workshops:
+                type: "[Workshop]"
+                resolve: '@=resolver("app.graphql.resolver.workshop.all")'
+            Workshop:
+                type: "Workshop"
+                args:
+                    id:
+                        type: "UUID!"
+                resolve: '@=resolver("app.graphql.resolver.workshop.by.id", [args["id"]])'
