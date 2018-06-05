@@ -1,4 +1,6 @@
 Query:
+    inherits:
+        - WorkshopQuery
     type: object
     config:
         description: "Main Queries"
@@ -12,9 +14,17 @@ Query:
                     name:
                         type: "String!"
                 resolve: "@=args['name'] ?: 'Guest'"
+
+WorkshopQuery:
+    decorator: true
+    config:
+        fields:
             Workshops:
                 type: "[Workshop]"
                 resolve: '@=resolver("app.graphql.resolver.workshop.all")'
+            WorkshopsDirectly:
+                type: "[Workshop]"
+                resolve: '@=resolver("App\\Infrastructure\\GraphQL\\Workshop\\Resolver\\Workshop::allWorkshops")'
             WorkshopsRelay:
                 type: "WorkshopConnection"
                 argsBuilder: "Relay::Connection"
