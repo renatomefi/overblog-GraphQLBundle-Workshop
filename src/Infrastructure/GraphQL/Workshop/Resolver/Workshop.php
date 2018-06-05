@@ -5,6 +5,8 @@ namespace App\Infrastructure\GraphQL\Workshop\Resolver;
 use App\Domain\Workshop as WorkshopVo;
 use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
 use Overblog\GraphQLBundle\Definition\Resolver\ResolverInterface;
+use Overblog\GraphQLBundle\Relay\Connection\Output\Connection;
+use Overblog\GraphQLBundle\Relay\Connection\Output\ConnectionBuilder;
 
 final class Workshop implements ResolverInterface, AliasedInterface
 {
@@ -14,6 +16,19 @@ final class Workshop implements ResolverInterface, AliasedInterface
             new WorkshopVo('GraphQL with Symfony', 'DPC 2018', '5cf8c6ac-7f40-46a1-b666-2c262d4e8abe'),
             new WorkshopVo('GraphQL with Symfony', 'FWDays 2018', 'aab5088d-6b59-4e00-84b8-3e71943fd2a1'),
         ];
+    }
+
+    public function relayWorkshops($args): Connection
+    {
+        $data = $this->allWorkshops();
+
+        return ConnectionBuilder::connectionFromArraySlice(
+            $data,
+            $args,
+            [
+                'arrayLength' => \count($data),
+            ]
+        );
     }
 
     public function workshopById(string $id): ?WorkshopVo
@@ -27,6 +42,7 @@ final class Workshop implements ResolverInterface, AliasedInterface
     {
         return [
             'allWorkshops' => 'app.graphql.resolver.workshop.all',
+            'relayWorkshops' => 'app.graphql.resolver.workshop.relay',
             'workshopById' => 'app.graphql.resolver.workshop.by.id',
         ];
     }

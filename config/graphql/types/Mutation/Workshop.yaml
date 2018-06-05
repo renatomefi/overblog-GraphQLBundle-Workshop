@@ -18,3 +18,8 @@ Workshop:
 WorkshopInput:
     type: input-object
     inherits: [WorkshopPrototype]
+
+WorkshopConnection:
+    type: relay-connection
+    config:
+        nodeType: Workshop

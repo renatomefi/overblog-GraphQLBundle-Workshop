@@ -15,6 +15,10 @@ Query:
             Workshops:
                 type: "[Workshop]"
                 resolve: '@=resolver("app.graphql.resolver.workshop.all")'
+            WorkshopsRelay:
+                type: "WorkshopConnection"
+                argsBuilder: "Relay::Connection"
+                resolve: '@=resolver("app.graphql.resolver.workshop.relay", [args])'
             Workshop:
                 type: "Workshop"
                 args:
