@@ -13,7 +13,7 @@ Workshop:
     config:
         fields:
             id:
-                type: "String!"
+                type: "UUID!"
 
 WorkshopInput:
     type: input-object
