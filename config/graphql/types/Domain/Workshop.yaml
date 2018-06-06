@@ -14,6 +14,10 @@ Workshop:
         fields:
             id:
                 type: "UUID!"
+            enrolledPeople:
+                type: "[Person]"
+                description: "All People related to this Workshop"
+                resolve: '@=resolver("app.graphql.resolver.people.by.workshop", [value, args])'
 
 WorkshopInput:
     type: input-object
