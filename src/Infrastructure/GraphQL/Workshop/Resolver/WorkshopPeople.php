@@ -5,6 +5,7 @@ namespace App\Infrastructure\GraphQL\Workshop\Resolver;
 
 use App\Domain\Person;
 use App\Domain\Repository\PersonRepositoryInterface;
+use App\Domain\Repository\WorkshopRepositoryInterface;
 use App\Domain\Workshop;
 use Generator;
 use Overblog\GraphQLBundle\Definition\Argument;
@@ -35,9 +36,17 @@ final class WorkshopPeople implements ResolverInterface, AliasedInterface
      */
     private $personRepository;
 
-    public function __construct(PersonRepositoryInterface $personRepository)
-    {
+    /**
+     * @var WorkshopRepositoryInterface
+     */
+    private $workshopRepository;
+
+    public function __construct(
+        PersonRepositoryInterface $personRepository,
+        WorkshopRepositoryInterface $workshopRepository
+    ) {
         $this->personRepository = $personRepository;
+        $this->workshopRepository = $workshopRepository;
     }
 
     /**
@@ -56,10 +65,20 @@ final class WorkshopPeople implements ResolverInterface, AliasedInterface
         }
     }
 
+    public function resolveWorkshopsByPerson(Person $person): Generator
+    {
+        foreach (self::$data as $workshopId => $people) {
+            if (array_key_exists($person->getId(), $people)) {
+                yield $this->workshopRepository->findById($workshopId);
+            }
+        }
+    }
+
     public static function getAliases(): array
     {
         return [
             'resolvePeopleByWorkshop' => 'app.graphql.resolver.people.by.workshop',
+            'resolveWorkshopsByPerson' => 'app.graphql.resolver.workshop.by.people',
         ];
     }
 }

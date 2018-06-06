@@ -8,3 +8,6 @@ Person:
                 type: "String!"
             bornDate:
                 type: "Date!"
+            enrolledWorkshops:
+                type: "[Workshop]"
+                resolve: "@=resolver('app.graphql.resolver.workshop.by.people', [value])"
