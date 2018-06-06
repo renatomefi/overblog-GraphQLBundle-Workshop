@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Infrastructure\GraphQL\Workshop\Resolver;
 
@@ -22,11 +23,26 @@ final class Workshop implements ResolverInterface, AliasedInterface
     {
         $data = $this->allWorkshops();
 
+        $count = \count($data);
+//
+//        $beforeOffset = ConnectionBuilder::getOffsetWithDefault($args['before'], $count);
+//        $afterOffset = ConnectionBuilder::getOffsetWithDefault($args['after'], -1);
+//        $startOffset = max($afterOffset, -1) + 1;
+//        $endOffset = min($beforeOffset, $count);
+//        if (is_numeric($args['first'])) {
+//            $endOffset = min($endOffset, $startOffset + $args['first']);
+//        }
+//        if (is_numeric($args['last'])) {
+//            $startOffset = max($startOffset, $endOffset - $args['last']);
+//        }
+//        $offset = max($startOffset, 0);
+
         return ConnectionBuilder::connectionFromArraySlice(
             $data,
             $args,
             [
-                'arrayLength' => \count($data),
+//                'sliceStart' => $offset,
+                'arrayLength' => $count,
             ]
         );
     }

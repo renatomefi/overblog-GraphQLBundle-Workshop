@@ -1,6 +1,4 @@
 Query:
-    inherits:
-        - WorkshopQuery
     type: object
     config:
         description: "Main Queries"
@@ -17,6 +15,7 @@ Query:
 
 WorkshopQuery:
     decorator: true
+    heirs: [Query]
     config:
         fields:
             Workshops:
@@ -35,3 +34,18 @@ WorkshopQuery:
                     id:
                         type: "UUID!"
                 resolve: '@=resolver("app.graphql.resolver.workshop.by.id", [args["id"]])'
+
+PersonQuery:
+    decorator: true
+    heirs: [Query]
+    config:
+        fields:
+            People:
+                type: "[Person]"
+                resolve: '@=resolver("app.graphql.resolver.person.all")'
+            Person:
+                type: "Person"
+                args:
+                    id:
+                        type: "UUID!"
+                resolve: '@=resolver("app.graphql.resolver.person.by.id", [args["id"]])'

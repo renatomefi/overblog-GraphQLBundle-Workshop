@@ -1,0 +1,10 @@
+Person:
+    type: object
+    config:
+        fields:
+            id:
+                type: "UUID!"
+            name:
+                type: "String!"
+            bornDate:
+                type: "Date!"
