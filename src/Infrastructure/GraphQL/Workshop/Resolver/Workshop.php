@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\GraphQL\Workshop\Resolver;
 
+use App\Domain\Repository\WorkshopRepositoryInterface;
 use App\Domain\Workshop as WorkshopVo;
 use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
 use Overblog\GraphQLBundle\Definition\Resolver\ResolverInterface;
@@ -11,12 +12,19 @@ use Overblog\GraphQLBundle\Relay\Connection\Output\ConnectionBuilder;
 
 final class Workshop implements ResolverInterface, AliasedInterface
 {
+    /**
+     * @var WorkshopRepositoryInterface
+     */
+    private $workshopRepository;
+
+    public function __construct(WorkshopRepositoryInterface $workshopRepository)
+    {
+        $this->workshopRepository = $workshopRepository;
+    }
+
     public function allWorkshops(): array
     {
-        return [
-            new WorkshopVo('GraphQL with Symfony', 'DPC 2018', '5cf8c6ac-7f40-46a1-b666-2c262d4e8abe'),
-            new WorkshopVo('GraphQL with Symfony', 'FWDays 2018', 'aab5088d-6b59-4e00-84b8-3e71943fd2a1'),
-        ];
+        return $this->workshopRepository->findAll();
     }
 
     public function relayWorkshops($args): Connection
@@ -49,9 +57,7 @@ final class Workshop implements ResolverInterface, AliasedInterface
 
     public function workshopById(string $id): ?WorkshopVo
     {
-        return array_filter($this->allWorkshops(), function (WorkshopVo $workshop) use ($id) {
-            return $workshop->getId() === $id;
-        })[0] ?? null;
+        return $this->workshopRepository->findById($id);
     }
 
     public static function getAliases(): array

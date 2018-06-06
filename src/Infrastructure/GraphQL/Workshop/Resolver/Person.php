@@ -4,25 +4,30 @@ declare(strict_types=1);
 namespace App\Infrastructure\GraphQL\Workshop\Resolver;
 
 use App\Domain\Person as PersonVo;
-use DateTimeImmutable;
+use App\Domain\Repository\PersonRepositoryInterface;
 use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
 use Overblog\GraphQLBundle\Definition\Resolver\ResolverInterface;
 
 final class Person implements ResolverInterface, AliasedInterface
 {
+    /**
+     * @var PersonRepositoryInterface
+     */
+    private $personRepository;
+
+    public function __construct(PersonRepositoryInterface $personRepository)
+    {
+        $this->personRepository = $personRepository;
+    }
+
     public function allPersons(): array
     {
-        return [
-            new PersonVo('Renato', new DateTimeImmutable('1989-08-02'), '3317742c-1dec-43d1-b1eb-06634a58e95b'),
-            new PersonVo('René', new DateTimeImmutable('1992-12-31'), '9099d144-fc0b-417c-a003-eb9396a3e264'),
-        ];
+        return $this->personRepository->findAll();
     }
 
     public function personById(string $id): ?PersonVo
     {
-        return array_filter($this->allPersons(), function (PersonVo $person) use ($id) {
-            return $person->getId() === $id;
-        })[0] ?? null;
+        return $this->personRepository->findById($id);
     }
 
     public static function getAliases(): array
