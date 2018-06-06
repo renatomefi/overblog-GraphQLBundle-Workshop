@@ -8,6 +8,8 @@ Person:
                 type: "String!"
             bornDate:
                 type: "Date!"
+                public: '@=service("App\\Infrastructure\\GraphQL\\Workshop\\Resolver\\WorkshopPeople").canViewBornDate(typeName, fieldName)'
+                access: '@=service("App\\Infrastructure\\GraphQL\\Workshop\\Resolver\\WorkshopPeople").canAccessBornDate(value)'
             enrolledWorkshops:
                 type: "[Workshop]"
                 complexity: '@=2 + childrenComplexity'

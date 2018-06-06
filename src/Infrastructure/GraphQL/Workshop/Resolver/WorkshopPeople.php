@@ -82,4 +82,14 @@ final class WorkshopPeople implements ResolverInterface, AliasedInterface
             'resolveWorkshopsByPerson' => 'app.graphql.resolver.workshop.by.people',
         ];
     }
+
+    public function canViewBornDate(string $typeName, string $fieldName): bool
+    {
+        return true;
+    }
+
+    public function canAccessBornDate(Person $person): bool
+    {
+        return $person->getId() !== '3317742c-1dec-43d1-b1eb-06634a58e95b';
+    }
 }
