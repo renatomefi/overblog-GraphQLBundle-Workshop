@@ -1,0 +1,14 @@
+{
+  "errors": [
+    {
+      "message": "Argument \u0022id\u0022 has invalid value \u0022123\u0022.\nExpected type \u0022UUID\u0022, found \u0022123\u0022.",
+      "category": "graphql",
+      "locations": [
+        {
+          "line": 2,
+          "column": 16
+        }
+      ]
+    }
+  ]
+}

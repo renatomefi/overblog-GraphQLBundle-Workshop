@@ -1,0 +1,7 @@
+{
+    People {
+        id
+        name
+        bornDate
+    }
+}

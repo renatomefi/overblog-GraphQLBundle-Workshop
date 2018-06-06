@@ -1,0 +1,281 @@
+{
+  "data": {
+    "People": [
+      null,
+      {
+        "id": "9099d144-fc0b-417c-a003-eb9396a3e264",
+        "name": "Denis Brumann",
+        "bornDate": "2018-06-06"
+      },
+      {
+        "id": "d186ebf4-9de1-4eb6-b5ab-fbc07f7ca1d6",
+        "name": "Koen Eelen",
+        "bornDate": "2018-06-06"
+      },
+      {
+        "id": "b7b5c83b-3e20-421d-8351-03eb4bc1eeff",
+        "name": "Pavel Abduramanov",
+        "bornDate": "2018-06-06"
+      },
+      {
+        "id": "83799804-5236-4c74-bab9-faf59c084f4a",
+        "name": "Donatas Aleksandravi\u010dius",
+        "bornDate": "2018-06-06"
+      },
+      {
+        "id": "3c3c8804-e3cd-4025-af15-bf62dfb22f38",
+        "name": "Tjeerd Bijlsma",
+        "bornDate": "2018-06-06"
+      },
+      {
+        "id": "1e38f9b9-e567-473f-9151-0f711263c0c8",
+        "name": "Jakob Buis",
+        "bornDate": "2018-06-06"
+      },
+      {
+        "id": "a9236c37-6db8-4002-919c-036faaf24b07",
+        "name": "Peter Ton",
+        "bornDate": "2018-06-06"
+      },
+      {
+        "id": "88e0318f-17e0-4859-9766-a616f29bf364",
+        "name": "Martijn Letter",
+        "bornDate": "2018-06-06"
+      },
+      {
+        "id": "0240850e-2494-46de-a428-b3fb8b3ee35c",
+        "name": "Sander Bol",
+        "bornDate": "2018-06-06"
+      },
+      {
+        "id": "76ab071a-94d9-491b-9baf-96c6a485dc9f",
+        "name": "Onno Lissenberg",
+        "bornDate": "2018-06-06"
+      },
+      {
+        "id": "7b6b9b41-76cc-4774-ac74-eddc62b621a1",
+        "name": "Simon Gerritsen",
+        "bornDate": "2018-06-06"
+      },
+      {
+        "id": "0bb74483-c6f3-4a8d-b23b-68e38081374e",
+        "name": "Karin Van den Berg",
+        "bornDate": "2018-06-06"
+      },
+      {
+        "id": "83eaf203-f2e3-4a32-b307-3e8e0f80149e",
+        "name": "Marina Orlova",
+        "bornDate": "2018-06-06"
+      },
+      {
+        "id": "e50e55e0-1d00-451d-9392-40ab36667c57",
+        "name": "Henne Van Och",
+        "bornDate": "2018-06-06"
+      },
+      {
+        "id": "89c64616-9f9c-47dd-9148-543bbb4db7b2",
+        "name": "Nikolay Naumenko",
+        "bornDate": "2018-06-06"
+      },
+      {
+        "id": "0fb827bf-09bc-4f0d-801f-35444e4d99fc",
+        "name": "Holger Woltersdorf",
+        "bornDate": "2018-06-06"
+      }
+    ]
+  },
+  "extensions": {
+    "warnings": [
+      {
+        "message": "Access denied to this field.",
+        "category": "user",
+        "locations": [
+          {
+            "line": 5,
+            "column": 9
+          }
+        ],
+        "path": [
+          "People",
+          0,
+          "bornDate"
+        ],
+        "trace": [
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/overblog\/graphql-bundle\/Resolver\/AccessResolver.php",
+            "line": 55,
+            "call": "Overblog\\GraphQLBundle\\Resolver\\AccessResolver::processFilter(instance of DateTimeImmutable, instance of Closure, array(4))"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/overblog\/graphql-bundle\/Resolver\/AccessResolver.php",
+            "line": 33,
+            "call": "Overblog\\GraphQLBundle\\Resolver\\AccessResolver::filterResultUsingAccess(instance of Closure, array(2), array(4))"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/overblog\/graphql-bundle\/Definition\/ConfigProcessor\/AclConfigProcessor.php",
+            "line": 39,
+            "call": "Overblog\\GraphQLBundle\\Resolver\\AccessResolver::resolve(instance of Closure, array(2), array(4), false)"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/overblog\/graphql-bundle\/Resolver\/Resolver.php",
+            "line": 56,
+            "call": "Overblog\\GraphQLBundle\\Definition\\ConfigProcessor\\AclConfigProcessor::Overblog\\GraphQLBundle\\Definition\\ConfigProcessor\\{closure}(instance of App\\Domain\\Person, instance of Overblog\\GraphQLBundle\\Definition\\Argument(0), instance of ArrayObject(1), instance of GraphQL\\Type\\Definition\\ResolveInfo)"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/webonyx\/graphql-php\/src\/Executor\/Executor.php",
+            "line": 750,
+            "call": "Overblog\\GraphQLBundle\\Resolver\\Resolver::Overblog\\GraphQLBundle\\Resolver\\{closure}(instance of App\\Domain\\Person, array(0), instance of ArrayObject(1), instance of GraphQL\\Type\\Definition\\ResolveInfo)"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/webonyx\/graphql-php\/src\/Executor\/Executor.php",
+            "line": 713,
+            "call": "GraphQL\\Executor\\Executor::resolveOrError(instance of GraphQL\\Type\\Definition\\FieldDefinition, instance of GraphQL\\Language\\AST\\FieldNode, instance of Closure, instance of App\\Domain\\Person, instance of ArrayObject(1), instance of GraphQL\\Type\\Definition\\ResolveInfo)"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/webonyx\/graphql-php\/src\/Executor\/Executor.php",
+            "line": 442,
+            "call": "GraphQL\\Executor\\Executor::resolveField(GraphQLType: Person, instance of App\\Domain\\Person, instance of ArrayObject(1), array(3))"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/webonyx\/graphql-php\/src\/Executor\/Executor.php",
+            "line": 1305,
+            "call": "GraphQL\\Executor\\Executor::executeFields(GraphQLType: Person, instance of App\\Domain\\Person, array(2), instance of ArrayObject(3))"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/webonyx\/graphql-php\/src\/Executor\/Executor.php",
+            "line": 1250,
+            "call": "GraphQL\\Executor\\Executor::collectAndExecuteSubfields(GraphQLType: Person, instance of ArrayObject(1), instance of GraphQL\\Type\\Definition\\ResolveInfo, array(2), instance of App\\Domain\\Person)"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/webonyx\/graphql-php\/src\/Executor\/Executor.php",
+            "line": 966,
+            "call": "GraphQL\\Executor\\Executor::completeObjectValue(GraphQLType: Person, instance of ArrayObject(1), instance of GraphQL\\Type\\Definition\\ResolveInfo, array(2), instance of App\\Domain\\Person)"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/webonyx\/graphql-php\/src\/Executor\/Executor.php",
+            "line": 845,
+            "call": "GraphQL\\Executor\\Executor::completeValue(GraphQLType: Person, instance of ArrayObject(1), instance of GraphQL\\Type\\Definition\\ResolveInfo, array(2), instance of App\\Domain\\Person)"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/webonyx\/graphql-php\/src\/Executor\/Executor.php",
+            "line": 799,
+            "call": "GraphQL\\Executor\\Executor::completeValueWithLocatedError(GraphQLType: Person, instance of ArrayObject(1), instance of GraphQL\\Type\\Definition\\ResolveInfo, array(2), instance of App\\Domain\\Person)"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/webonyx\/graphql-php\/src\/Executor\/Executor.php",
+            "line": 1175,
+            "call": "GraphQL\\Executor\\Executor::completeValueCatchingError(GraphQLType: Person, instance of ArrayObject(1), instance of GraphQL\\Type\\Definition\\ResolveInfo, array(2), instance of App\\Domain\\Person)"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/webonyx\/graphql-php\/src\/Executor\/Executor.php",
+            "line": 937,
+            "call": "GraphQL\\Executor\\Executor::completeListValue(GraphQLType: Person, instance of ArrayObject(1), instance of GraphQL\\Type\\Definition\\ResolveInfo, array(1), array(17))"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/webonyx\/graphql-php\/src\/Executor\/Executor.php",
+            "line": 845,
+            "call": "GraphQL\\Executor\\Executor::completeValue(GraphQLType: Person, instance of ArrayObject(1), instance of GraphQL\\Type\\Definition\\ResolveInfo, array(1), array(17))"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/webonyx\/graphql-php\/src\/Executor\/Executor.php",
+            "line": 799,
+            "call": "GraphQL\\Executor\\Executor::completeValueWithLocatedError(GraphQLType: Person, instance of ArrayObject(1), instance of GraphQL\\Type\\Definition\\ResolveInfo, array(1), array(17))"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/webonyx\/graphql-php\/src\/Executor\/Executor.php",
+            "line": 721,
+            "call": "GraphQL\\Executor\\Executor::completeValueCatchingError(GraphQLType: Person, instance of ArrayObject(1), instance of GraphQL\\Type\\Definition\\ResolveInfo, array(1), array(17))"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/webonyx\/graphql-php\/src\/Executor\/Executor.php",
+            "line": 442,
+            "call": "GraphQL\\Executor\\Executor::resolveField(GraphQLType: Query, null, instance of ArrayObject(1), array(1))"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/webonyx\/graphql-php\/src\/Executor\/Executor.php",
+            "line": 324,
+            "call": "GraphQL\\Executor\\Executor::executeFields(GraphQLType: Query, null, array(0), instance of ArrayObject(1))"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/webonyx\/graphql-php\/src\/Executor\/Executor.php",
+            "line": 287,
+            "call": "GraphQL\\Executor\\Executor::executeOperation(instance of GraphQL\\Language\\AST\\OperationDefinitionNode, null)"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/webonyx\/graphql-php\/src\/Executor\/Promise\/Adapter\/SyncPromiseAdapter.php",
+            "line": 59,
+            "call": "GraphQL\\Executor\\Executor::GraphQL\\Executor\\{closure}(array(2), array(2))"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/webonyx\/graphql-php\/src\/Executor\/Executor.php",
+            "line": 288,
+            "call": "GraphQL\\Executor\\Promise\\Adapter\\SyncPromiseAdapter::create(instance of Closure)"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/webonyx\/graphql-php\/src\/Executor\/Executor.php",
+            "line": 151,
+            "call": "GraphQL\\Executor\\Executor::doExecute()"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/webonyx\/graphql-php\/src\/GraphQL.php",
+            "line": 155,
+            "call": "GraphQL\\Executor\\Executor::promiseToExecute(instance of GraphQL\\Executor\\Promise\\Adapter\\SyncPromiseAdapter, instance of Overblog\\GraphQLBundle\\Definition\\Type\\ExtensibleSchema, instance of GraphQL\\Language\\AST\\DocumentNode, null, instance of ArrayObject(1), null, null, null)"
+          },
+          {
+            "call": "GraphQL\\GraphQL::promiseToExecute(instance of GraphQL\\Executor\\Promise\\Adapter\\SyncPromiseAdapter, instance of Overblog\\GraphQLBundle\\Definition\\Type\\ExtensibleSchema, \u0027{\n    People {\n        id\n        name\n        bornDate\n    }\n}\u0027, null, instance of ArrayObject(1), null, null)"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/overblog\/graphql-bundle\/Executor\/Executor.php",
+            "line": 22,
+            "function": "call_user_func_array(array(2), array(7))"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/overblog\/graphql-bundle\/Request\/Executor.php",
+            "line": 142,
+            "call": "Overblog\\GraphQLBundle\\Executor\\Executor::execute(instance of Overblog\\GraphQLBundle\\Definition\\Type\\ExtensibleSchema, \u0027{\n    People {\n        id\n        name\n        bornDate\n    }\n}\u0027, null, instance of ArrayObject(1), null, null)"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/overblog\/graphql-bundle\/Controller\/GraphController.php",
+            "line": 159,
+            "call": "Overblog\\GraphQLBundle\\Request\\Executor::execute(null, array(3))"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/overblog\/graphql-bundle\/Controller\/GraphController.php",
+            "line": 119,
+            "call": "Overblog\\GraphQLBundle\\Controller\\GraphController::processNormalQuery(instance of Symfony\\Component\\HttpFoundation\\Request, null)"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/overblog\/graphql-bundle\/Controller\/GraphController.php",
+            "line": 88,
+            "call": "Overblog\\GraphQLBundle\\Controller\\GraphController::processQuery(instance of Symfony\\Component\\HttpFoundation\\Request, null, false)"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/overblog\/graphql-bundle\/Controller\/GraphController.php",
+            "line": 59,
+            "call": "Overblog\\GraphQLBundle\\Controller\\GraphController::createResponse(instance of Symfony\\Component\\HttpFoundation\\Request, null, false)"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/symfony\/http-kernel\/HttpKernel.php",
+            "line": 149,
+            "call": "Overblog\\GraphQLBundle\\Controller\\GraphController::endpointAction(instance of Symfony\\Component\\HttpFoundation\\Request, null)"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/symfony\/http-kernel\/HttpKernel.php",
+            "line": 66,
+            "call": "Symfony\\Component\\HttpKernel\\HttpKernel::handleRaw(instance of Symfony\\Component\\HttpFoundation\\Request, 1)"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/vendor\/symfony\/http-kernel\/Kernel.php",
+            "line": 188,
+            "call": "Symfony\\Component\\HttpKernel\\HttpKernel::handle(instance of Symfony\\Component\\HttpFoundation\\Request, 1, true)"
+          },
+          {
+            "file": "\/home\/renatomefi\/Workspace\/Talks\/workshop-graphql-SF4.1-sample\/public\/index.php",
+            "line": 37,
+            "call": "Symfony\\Component\\HttpKernel\\Kernel::handle(instance of Symfony\\Component\\HttpFoundation\\Request)"
+          }
+        ]
+      }
+    ]
+  }
+}
