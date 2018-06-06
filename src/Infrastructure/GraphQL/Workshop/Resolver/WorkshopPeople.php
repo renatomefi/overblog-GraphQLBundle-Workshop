@@ -17,7 +17,7 @@ final class WorkshopPeople implements ResolverInterface, AliasedInterface
 
     public const ENROLLMENT_TYPE_ATTENDEE = 'attendee';
 
-    private $data = [
+    private static $data = [
         '5cf8c6ac-7f40-46a1-b666-2c262d4e8abe' => [
             '3317742c-1dec-43d1-b1eb-06634a58e95b' => self::ENROLLMENT_TYPE_TUTOR,
             'd186ebf4-9de1-4eb6-b5ab-fbc07f7ca1d6' => self::ENROLLMENT_TYPE_ATTENDEE,
@@ -45,9 +45,13 @@ final class WorkshopPeople implements ResolverInterface, AliasedInterface
      */
     public function resolvePeopleByWorkshop(Workshop $workshop, Argument $args): Generator
     {
-        $peopleIds = $this->data[$workshop->getId()];
+        $peopleIds = self::$data[$workshop->getId()];
 
         foreach ($peopleIds as $personId => $role) {
+            if ($args['enrollmentType'] && $args['enrollmentType'] !== $role) {
+                continue;
+            }
+
             yield $this->personRepository->findById($personId);
         }
     }

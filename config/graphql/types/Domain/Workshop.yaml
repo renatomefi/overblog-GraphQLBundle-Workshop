@@ -16,6 +16,9 @@ Workshop:
                 type: "UUID!"
             enrolledPeople:
                 type: "[Person]"
+                args:
+                    enrollmentType:
+                        type: WorkshopEnrollment
                 description: "All People related to this Workshop"
                 resolve: '@=resolver("app.graphql.resolver.people.by.workshop", [value, args])'
 
@@ -27,3 +30,13 @@ WorkshopConnection:
     type: relay-connection
     config:
         nodeType: Workshop
+
+WorkshopEnrollment:
+    type: enum
+    config:
+        description: "Possible enrollment types between Workshop and Person"
+        values:
+            TUTOR:
+                value: '@=constant("App\\Infrastructure\\GraphQL\\Workshop\\Resolver\\WorkshopPeople::ENROLLMENT_TYPE_TUTOR")'
+            ATTENDEE:
+                value: '@=constant("App\\Infrastructure\\GraphQL\\Workshop\\Resolver\\WorkshopPeople::ENROLLMENT_TYPE_ATTENDEE")'
