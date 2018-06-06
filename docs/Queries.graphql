@@ -1,0 +1,60 @@
+query workshopRelayStuff($workshopId: UUID!) {
+  WorkshopsRelay(first: 1, after: "YXJyYXljb25uZWN0aW9uOjA=") {
+    pageInfo {
+      startCursor
+      endCursor
+      hasNextPage
+      hasPreviousPage
+    }
+    workshops: edges {
+      workshop: node {
+        id
+        name
+        conference
+      }
+    }
+  }
+  Workshop(id: $workshopId) {
+    conference
+  }
+}
+
+query allWorkshop {
+    WorkshopsRelay(first: 1) {
+    pageInfo {
+      startCursor
+      endCursor
+      hasNextPage
+      hasPreviousPage
+    }
+    workshops: edges {
+      workshop: node {
+        id
+        name
+        conference
+      }
+    }
+  }
+   WorkshopsDirectly{
+    id
+    conference
+    name
+    tutors: enrolledPeople(enrollmentType: TUTOR) {
+      name
+    }
+    attendees: enrolledPeople(enrollmentType: ATTENDEE) {
+      name
+    }
+  }
+}
+
+query peopleStuff {
+  People {
+    id
+    name
+  }
+  RenatoStuff: Person(id: "3317742c-1dec-43d1-b1eb-06634a58e95b") {
+    name
+    bornDate
+  }
+}
