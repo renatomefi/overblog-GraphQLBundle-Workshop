@@ -1,0 +1,10 @@
+Conference:
+    type: object
+    config:
+        fields:
+            name:
+                type: "String"
+            dateStart:
+                type: "Date"
+            dateEnd:
+                type: "Date"

@@ -14,6 +14,12 @@ Workshop:
         fields:
             id:
                 type: "UUID!"
+            conference:
+                deprecationReason: "use conferenceRelation now, it'll be excluded at 2018-07-01"
+                resolve: "@=value.getConference().getName()"
+            conferenceRelation:
+                type: "Conference"
+                resolve: "@=value.getConference()"
             enrolledPeople:
                 type: "[Person]"
                 args:

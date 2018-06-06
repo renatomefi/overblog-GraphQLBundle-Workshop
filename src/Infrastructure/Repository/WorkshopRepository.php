@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Repository;
 
+use App\Domain\Conference;
 use App\Domain\Repository\WorkshopRepositoryInterface;
 use App\Domain\Workshop;
 
@@ -15,9 +16,15 @@ final class WorkshopRepository implements WorkshopRepositoryInterface
 
     public function __construct()
     {
+        $dpc = new Conference(
+            'DPC  2018',
+            new \DateTimeImmutable('2018-06-07'),
+            new \DateTimeImmutable('2018-06-09')
+        );
+
         $this->data = [
-            '5cf8c6ac-7f40-46a1-b666-2c262d4e8abe' => new Workshop('GraphQL Server in PHP with Symfony Flex', 'DPC 2018', '5cf8c6ac-7f40-46a1-b666-2c262d4e8abe'),
-            'aab5088d-6b59-4e00-84b8-3e71943fd2a1' => new Workshop('Getting started with Symfony 4 and Flex', 'DPC 2018', 'aab5088d-6b59-4e00-84b8-3e71943fd2a1'),
+            '5cf8c6ac-7f40-46a1-b666-2c262d4e8abe' => new Workshop('GraphQL Server in PHP with Symfony Flex', $dpc, '5cf8c6ac-7f40-46a1-b666-2c262d4e8abe'),
+            'aab5088d-6b59-4e00-84b8-3e71943fd2a1' => new Workshop('Getting started with Symfony 4 and Flex', $dpc, 'aab5088d-6b59-4e00-84b8-3e71943fd2a1'),
         ];
     }
 

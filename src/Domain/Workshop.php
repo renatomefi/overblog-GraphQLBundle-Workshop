@@ -13,7 +13,7 @@ final class Workshop
     private $id;
 
     /**
-     * @var string
+     * @var Conference
      */
     private $conference;
 
@@ -22,14 +22,14 @@ final class Workshop
      */
     private $name;
 
-    public function __construct(string $name, string $conference, ?string $id = null)
+    public function __construct(string $name, Conference $conference, ?string $id = null)
     {
         $this->name = $name;
         $this->conference = $conference;
         $this->id = Uuid::isValid($id) ? $id : Uuid::uuid4();
     }
 
-    public function getConference(): string
+    public function getConference(): Conference
     {
         return $this->conference;
     }
