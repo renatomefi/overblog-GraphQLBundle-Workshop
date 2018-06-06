@@ -10,4 +10,5 @@ Person:
                 type: "Date!"
             enrolledWorkshops:
                 type: "[Workshop]"
+                complexity: '@=2 + childrenComplexity'
                 resolve: "@=resolver('app.graphql.resolver.workshop.by.people', [value])"

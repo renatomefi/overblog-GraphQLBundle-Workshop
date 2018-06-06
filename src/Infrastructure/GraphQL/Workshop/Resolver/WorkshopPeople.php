@@ -28,6 +28,7 @@ final class WorkshopPeople implements ResolverInterface, AliasedInterface
         ],
         'aab5088d-6b59-4e00-84b8-3e71943fd2a1' => [
             '9099d144-fc0b-417c-a003-eb9396a3e264' => self::ENROLLMENT_TYPE_TUTOR,
+            '3317742c-1dec-43d1-b1eb-06634a58e95b' => self::ENROLLMENT_TYPE_ATTENDEE,
         ]
     ];
 
