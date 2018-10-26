@@ -21,14 +21,14 @@ final class WorkshopPeople implements ResolverInterface, AliasedInterface
     private static $data = [
         '5cf8c6ac-7f40-46a1-b666-2c262d4e8abe' => [
             '3317742c-1dec-43d1-b1eb-06634a58e95b' => self::ENROLLMENT_TYPE_TUTOR,
+            '9099d144-fc0b-417c-a003-eb9396a3e264' => self::ENROLLMENT_TYPE_ATTENDEE,
             'd186ebf4-9de1-4eb6-b5ab-fbc07f7ca1d6' => self::ENROLLMENT_TYPE_ATTENDEE,
+            'b7b5c83b-3e20-421d-8351-03eb4bc1eeff' => self::ENROLLMENT_TYPE_ATTENDEE,
             '83799804-5236-4c74-bab9-faf59c084f4a' => self::ENROLLMENT_TYPE_ATTENDEE,
-            '1e38f9b9-e567-473f-9151-0f711263c0c8' => self::ENROLLMENT_TYPE_ATTENDEE,
-            '0240850e-2494-46de-a428-b3fb8b3ee35c' => self::ENROLLMENT_TYPE_ATTENDEE,
         ],
         'aab5088d-6b59-4e00-84b8-3e71943fd2a1' => [
-            '9099d144-fc0b-417c-a003-eb9396a3e264' => self::ENROLLMENT_TYPE_TUTOR,
-            '3317742c-1dec-43d1-b1eb-06634a58e95b' => self::ENROLLMENT_TYPE_ATTENDEE,
+            '3317742c-1dec-43d1-b1eb-06634a58e95b' => self::ENROLLMENT_TYPE_TUTOR,
+            'd186ebf4-9de1-4eb6-b5ab-fbc07f7ca1d6' => self::ENROLLMENT_TYPE_ATTENDEE,
         ]
     ];
 
@@ -90,6 +90,6 @@ final class WorkshopPeople implements ResolverInterface, AliasedInterface
 
     public function canAccessBornDate(Person $person): bool
     {
-        return $person->getId() !== '3317742c-1dec-43d1-b1eb-06634a58e95b';
+        return $person->getId() === '3317742c-1dec-43d1-b1eb-06634a58e95b';
     }
 }
