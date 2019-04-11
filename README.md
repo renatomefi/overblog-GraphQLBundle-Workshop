@@ -2,6 +2,10 @@
 
 ## Slides
 
+### PHP Yorkshire 2019
+
+[http://talks.mefi.in/workshop-graphql-phpyorkshire19](http://talks.mefi.in/workshop-graphql-phpyorkshire19/)
+
 ### PHP Central Europe 2018
 
 [http://talks.mefi.in/workshop-graphql-phpce18](http://talks.mefi.in/workshop-graphql-phpce18/)
